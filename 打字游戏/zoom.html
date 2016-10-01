@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/zoom.css">
+	<script src="js/zoom.js"></script>
+	<script src="js/function.js"></script>
+	<script>
+      $(function(){
+	var smallBox=$(".smallBox")[0]
+	console.log(smallBox)
+	var bigBox=$(".bigBox")[0]
+	var imgB=bigBox.getElementsByTagName("img")[0]
+	 console.log(imgB)
+	var imgSW=getComputedStyle(smallBox,null)["width"]
+	    imgSW=parseInt(imgSW)
+	// console.log(imgSW)
+	var imgBW;
+	smallBox.onmouseover=function(){
+		alert(1)
+		// imgBW=imgB.offsetWidth
+		
+		bigBox.style.display="block"
+		// imgBW=getComputedStyle(imgB,null)["width"]
+		imgBW=getComputedStyle(imgB,null)["width"];
+		console.log(imgBW)
+
+	}
+	smallBox.onmouseout=function(){
+		
+		bigBox.style.display="none"
+
+	}
+	smallBox.onmousemove=function(e){
+		var bili=imgBW/imgSW
+		
+        
+	}
+})
+	</script>
+</head>
+<body>
+	<div class="win">
+		<div class="smallBox">
+			<img src="img/fangdajing.jpg">
+		</div>
+		<div class="bigBox">
+			<img src="img/fangdajing.jpg">
+		</div>
+	</div>
+</body>
+</html>

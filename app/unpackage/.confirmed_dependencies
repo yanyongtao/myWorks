@@ -1,0 +1,63 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"welcome.html",
+			"fonts/mui.ttf",
+			"js/index.js",
+			"tpl/index.html"
+		],
+		"refer": [
+			"welcome.html",
+			"tpl/index.html"
+		]
+	},
+	"welcome.html": {
+		"resources": [
+			"img/yindao1.jpg",
+			"img/yindao2.jpg",
+			"img/yindao3.jpg",
+			"js/swiper-3.3.1.min.js",
+			"css/welcome.css",
+			"css/swiper-3.3.1.min.css",
+			"js/mui.min.js",
+			"img/yindao4.jpg",
+			"css/mui.min.css",
+			"index.html",
+			"js/index.js"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"tpl/index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/index.js",
+			"img/yindao1.jpg",
+			"img/yindao2.jpg"
+		],
+		"refer": [
+			"tpl/_list.html"
+		]
+	},
+	"tpl/_list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"tpl/list.html"
+		],
+		"refer": [
+			"tpl/list.html"
+		]
+	},
+	"tpl/list.html": {
+		"resources": [
+			"img/yindao1.jpg",
+			"js/index.js"
+		]
+	}
+}

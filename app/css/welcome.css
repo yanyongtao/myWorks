@@ -1,0 +1,43 @@
+html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+}
+.swiper-container{
+	width: 100%;
+	height: 100%;
+}
+.swiper-wrapper{
+	width: 100%;
+	height: 100%;
+}
+.one{
+	background: url(../img/yindao1.jpg);
+	background-size:100% 100%;
+}
+.two{
+	background: url(../img/yindao2.jpg);
+	background-size:100% 100%;
+}
+.three{
+	background: url(../img/yindao3.jpg);
+	background-size:100% 100%;
+}
+.four{
+	background: url(../img/yindao4.jpg);
+	background-size:100% 100%;
+	position: relative;
+}
+.go{
+	display: block;
+	text-decoration: none;
+	position: absolute;
+	left: 50%;
+	margin-left: -0.85rem;
+	bottom: 0.67rem;
+	width: 1.73rem;
+	height: 0.5rem;
+}

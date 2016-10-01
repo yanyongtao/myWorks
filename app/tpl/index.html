@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/index.js"></script>
+	</head>
+	<style>
+		.lunbo{
+			width: 95%;
+			height: 1.8rem;
+			margin: auto;
+			margin-top: 0.29rem;
+			margin-bottom: 0.1rem;
+			overflow: hidden;
+		}
+		.lunbo a img{
+			width: 100%;
+		}
+		.xidada{
+			display: block;
+			width: 95%;
+			height: 0.8rem;
+			border-bottom: 1px solid #ccc;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0.08rem 0;
+		}
+		.xiLeft{
+			width: 70%;
+			height: 100%;
+			float: left;
+			position: relative;
+		}
+		.xiLeft div:nth-of-type(1){
+			color: #000;
+			letter-spacing: 1px;
+		}
+		.xiLeft div:nth-of-type(2){
+			font-size: 12px;
+			position: absolute;
+			bottom: 0;
+		}
+		.xiLeft div:nth-of-type(3){
+			color: #999;
+			font-size: 12px;
+			position: absolute;
+			bottom: 0;left: 0.3rem;
+		}
+		.xiLeft div:nth-of-type(4){
+			color: #999;
+			font-size: 12px;
+			position: absolute;
+			bottom: 0;left: 0.6rem;
+		}
+		.xiRight{
+			float: right;
+			width: 30%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.xiRight img{
+			width: 100%;
+		}
+		.nav {
+				width: 100%;
+				height: 0.27rem;
+				overflow: hidden;
+				position: absolute;
+				top: 0;bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				margin-top: -5px;
+				z-index: 10;
+			}
+			.navbox{
+				height: 0.27rem;
+				border-bottom: 1px solid #ccc;
+			}
+			.navbox a{
+				color: #000;
+				float: left;
+				text-decoration: none;
+				line-height: 0.23rem;
+				padding: 0 12px;
+			}
+	</style>
+	<script>
+		window.onload=function(){
+				var navCon=document.getElementsByClassName("navCon")
+				var wid=navCon[0].offsetWidth*navCon.length+"px";
+				var navbox=document.getElementsByClassName("navbox")[0];
+				navbox.style.width=wid;
+//				mui(".navbox").on("dragstart","a",function(e){
+//					var fanx=e["detail"]["direction"]
+//				})
+//				mui(".navbox").on("drag","a",function(e){
+//					e.preventDefault()
+//						console.log(e["detail"].deltaX)
+//				})
+
+                document.addEventListener("plusready",function(){
+                	mui(".nav").on("tap","a",function(){
+                	var listview=plus.webview.create("_www/tpl/_list.html","",{width:"100%",height:"100%"})
+                	listview.show("slide-in-right")
+                })
+                })
+                
+					
+			}
+	</script>
+	<body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		
+		<div class="nav">
+			<div class="navbox">
+				<a href="javascript:;" class="navCon">国际新闻</a>
+				<a href="javascript:;" class="navCon">国内新闻</a>
+				<a href="javascript:;" class="navCon">财经新闻</a>
+				<a href="javascript:;" class="navCon">体育新闻</a>
+				<a href="javascript:;" class="navCon">汽车新闻</a>
+				<a href="javascript:;" class="navCon">娱乐新闻</a>
+				<a href="javascript:;" class="navCon">社会新闻</a>
+				<a href="javascript:;" class="navCon">军事新闻</a>
+				<a href="javascript:;" class="navCon">民生新闻</a>
+			</div>
+		</div>
+		
+		<div class="lunbo">
+			<a href=""><img src="../img/yindao2.jpg" alt="" /></a>
+		</div>
+		<a href="" class="xidada">
+			<div class="xiLeft">
+				<div>华裔空姐43分钟吞3.2公斤巨无霸汉堡(图)</div>
+				<div>置顶</div>
+				<div>专题</div>
+				<div>68评</div>
+			</div>
+			<div class="xiRight">
+				<img src="../img/yindao1.jpg" alt="" />
+			</div>
+		</a>
+		<a href="" class="xidada">
+			<div class="xiLeft">
+				<div>华裔空姐43分钟吞3.2公斤巨无霸汉堡(图)</div>
+				<div>置顶</div>
+				<div>专题</div>
+				<div>68评</div>
+			</div>
+			<div class="xiRight">
+				<img src="../img/yindao1.jpg" alt="" />
+			</div>
+		</a>
+		<a href="" class="xidada">
+			<div class="xiLeft">
+				<div>华裔空姐43分钟吞3.2公斤巨无霸汉堡(图)</div>
+				<div>置顶</div>
+				<div>专题</div>
+				<div>68评</div>
+			</div>
+			<div class="xiRight">
+				<img src="../img/yindao1.jpg" alt="" />
+			</div>
+		</a>
+	</body>
+
+</html>

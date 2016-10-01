@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+	<style>
+      html body{
+      	width: 100%;height: 100%;padding:0;margin: 0;background: url(img/beijing.jpg);color:#fff;overflow: hidden;font-size: 36px;font-weight: bold;
+      }
+      .jishu{
+            width: 100%;
+            height: 80px;
+            position: absolute;
+            left: 0;bottom:0;
+            background: #333;
+            z-index: 1;
+      }
+      .zongjifen{
+            width: 200px;
+            height: 60px;
+            margin: 10px 30px;
+            float: left;
+            background: #ccc;
+            border-radius: 10px;
+            margin-left: 60px;
+            line-height:60px;text-align:center;font-size:18px;color:#333;
+      }
+      .guanshu{
+            width: 200px;
+            height: 60px;
+            margin: 10px 30px;
+            float: left;
+            background: #ccc;
+            border-radius: 10px;
+            line-height:60px;text-align:center;font-size:18px;color:#333;
+      }
+      .xinjifen{
+            width: 200px;
+            height: 60px;
+            margin: 10px 30px;
+            float: left;
+            background: #ccc;
+            border-radius: 10px;
+            line-height:60px;text-align:center;font-size:18px;color:#333;
+      }
+      .shengming{
+            width: 200px;
+            height: 60px;
+            margin: 10px 30px;
+            float: left;
+            background: #ccc;
+            border-radius: 10px;
+            line-height:60px;text-align:center;font-size:18px;color:#333;
+      }
+      .happy{
+            width: 200px;
+            height: 60px;
+            margin: 10px 30px;
+            float: left;
+            background: #333;
+            border-radius: 10px;
+            font-size: 18px;
+            line-height: 60px;
+            text-align: center;
+      }
+	</style>
+	<script>
+	var arr=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+      $(function(){
+            var onearr=[]//***span容器
+      	var newarr=[]
+            var zongjifen=0;
+            var guanshu=1;
+            var xinjifen=0;
+            var shengming=6;
+            var num=5;//***字母
+            move(onearr,2)
+      	getRan(arr,num)
+      	append(newarr)
+      	function getRan(arr,num){
+      		for (var i = 0; i < num; i++) {
+      			var a=arr[Math.floor(Math.random()*arr.length)]
+      			while(check(a,newarr)){
+      				a=arr[Math.floor(Math.random()*arr.length)]
+      			}
+      			newarr.push(a)
+      		};
+      		return newarr
+      	}
+      	function check(a,newarr){
+      		for (var i = 0; i < newarr.length; i++) {
+      			if (a==newarr[i]) {
+      				return true
+      			}
+      		}
+      		return false
+      	}
+      	function append(newarr){
+      		for (var i = 0; i < newarr.length; i++) {
+      			var span=document.createElement("span")
+      			span.innerHTML=newarr[i]
+                        onearr.push(span)
+                        document.body.appendChild(span)
+      			var cw=document.documentElement.clientWidth
+      			var lefts=(100+Math.random()*(cw-200))
+      			while(checkP(lefts,onearr)){
+                            lefts=(100+Math.random()*(cw-200))
+                        }
+                        span.lefts=lefts;
+      			span.style.cssText="width:20px;height:20px;position:absolute;left:"+lefts+"px;top:"+(Math.random()*30)+"px;" 
+                   
+      		};
+      	}
+            function checkP(lefts,onearr){
+                  for (var i = 0; i < onearr.length; i++) {
+                        if (lefts>onearr[i].lefts-30&&lefts<onearr[i].lefts+30) {
+                             return true;
+                        };
+                  };
+                  return false
+            }
+            function move(onearr,speed){
+                  var t=setInterval(function(){
+                        for (var i = 0; i < onearr.length; i++) {
+                              var tops=onearr[i].offsetTop+speed
+                              onearr[i].style.top=tops+"px"
+                              var cw=document.documentElement.clientHeight
+                              if (tops>cw) {
+                                    document.body.removeChild(onearr[i])
+                                    newarr.splice(i,1)
+                                    onearr.splice(i,1)
+                                    getRan(arr,1)
+                                    append(newarr[newarr.length-1])
+                                    var div2=$(".shengming")[0]
+                                    shengming--
+                                    sm(div2,shengming)
+                                    if (shengming<0) {
+                                          alert("game over")
+                                          clearInterval(t)
+                                    };
+                              }
+                        }
+                  },50)
+            }
+            key()
+            function key(){
+                  document.onkeydown=function(e){
+                        e=e||window.event
+                  var letter=String.fromCharCode(e.keyCode)
+                  for (var i = 0; i < newarr.length; i++) {   
+                    if (newarr[i]==letter) {
+                        zongjifen++
+                        xinjifen++
+                        document.body.removeChild(onearr[i])
+                        newarr.splice(i,1)
+                        onearr.splice(i,1)
+                        getRan(arr,1)
+                        var div1=$(".zongjifen")[0]
+                        var div3=$(".guanshu")[0]
+                        var div4=$(".xinjifen")[0]
+                        append(newarr[newarr.length-1]);
+                        if (xinjifen>10) {
+                              alert("进入下一关")
+                              var array= getRan(arr,2)
+                              append(newarr[newarr.length-1])
+                              append(newarr[newarr.length-2])
+                              xinjifen=-1
+                              shengming=6
+                              console.log(shengming)
+                              guanshu+=1
+                              xinjifen++;
+
+                              gs(div3,guanshu)
+                              xjf(div4,xinjifen)
+                        }
+                        getnum(div1,zongjifen)
+                        xjf(div4,xinjifen)
+                    } 
+                  }; 
+                  }
+            }
+            //*****没进入无尽模式    进入下一关生命值不更新?????????????????????????
+            function getnum(div1,zongjifen){
+            div1.innerHTML="总积分:"+zongjifen
+            div1.style.cssText="line-height:60px;text-align:center;font-size:18px;color:#333;"
+            }
+            function sm(div2,shengming){
+            div2.innerHTML="生命值:"+shengming
+            div2.style.cssText="line-height:60px;text-align:center;font-size:18px;color:#333;"
+            }
+            function gs(div3,guanshu){
+            div3.innerHTML="第"+guanshu+"关"
+            div3.style.cssText="line-height:60px;text-align:center;font-size:18px;color:#333;"
+            }
+            function xjf(div4,xinjifen){
+            div4.innerHTML="当前积分:"+xinjifen
+            div4.style.cssText="line-height:60px;text-align:center;font-size:18px;color:#333;"
+            }
+            
+            
+
+
+      })
+	</script>
+</head>
+<body>
+	<div class="jishu">
+       <div class="zongjifen">总积分:0</div>   
+       <div class="shengming">生命值:6</div> 
+       <div class="happy">Happy game</div>
+       <div class="guanshu">第1关</div> 
+       <div class="xinjifen">当前积分:0</div>   
+      </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.win{
+	width: 900px;
+	height: 440px;
+	position: relative;
+}
+.smallBox{
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ccc;
+}
+.smallBox img{
+	width: 200px;
+	height: 200px;
+}
+.bigBox{
+	width: 200px;
+	height: 200px;
+    position: absolute;
+    left: 210px;
+    top: 0;
+    display: none;
+    overflow: hidden;
+}
+.bigBox img{
+	width: 430px;
+	height: 430px;
+	position: absolute;
+	left: 0;
+	top:0;
+}
